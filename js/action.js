@@ -2,12 +2,17 @@ function randomKey() {
   return 110 * Math.pow(Math.pow(2, 1 / 12), Math.ceil(Math.random() * 15));
 }
 function activate() {
-  Tone.context.creategit();
+  new Tone.AudioNode();
 }
-
 var keyBase = randomKey();
 
 const synth = new Tone.Synth().toMaster();
+const polySynth = new Tone.PolySynth(4, Tone.MonoSynth).toMaster();
+const strings = new Tone.PolySynth(4, Tone.FMSynth).toMaster();
+const beat = new Tone.MembraneSynth().toMaster();
+polySynth.volume.value = -20;
+strings.volume.value = -14;
+beat.volume.value = -14;
 
 var div = document.createElement("div");
 div.style.height = "100%";
@@ -48,7 +53,7 @@ for (i = 0; i < window.innerWidth; i += sqPx) {
       block.addEventListener("mouseover", function () {
         if (this.style.background != "transparent") {
           keyBase = randomKey();
-          synth.triggerAttackRelease(
+          polySynth.triggerAttackRelease(
             (((1 / 2) * 4 * keyBase) / 5) * Math.ceil(Math.random() * 6),
             "8n"
           );
@@ -64,10 +69,9 @@ for (i = 0; i < window.innerWidth; i += sqPx) {
           Tone.context.resume();
         }
         if (this.style.background != "transparent") {
-          // random from three octaves of major thirds
           var r = Math.random();
           if (r < 0.33) {
-            synth.triggerAttackRelease(
+            strings.triggerAttackRelease(
               (((1 / 2) * 4 * keyBase) / 5) * Math.ceil(Math.random() * 6),
               "8n"
             );
@@ -77,8 +81,9 @@ for (i = 0; i < window.innerWidth; i += sqPx) {
               "8n"
             );
           } else {
-            synth.triggerAttackRelease(
-              (((1 / 2) * 4 * keyBase) / 5) * Math.ceil(Math.random() * 6),
+            beat.triggerAttackRelease(
+              ((((1 / 2) * 4 * keyBase) / 5) * Math.ceil(Math.random() * 6)) /
+                2,
               "8n"
             );
           }
