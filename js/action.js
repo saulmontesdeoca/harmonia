@@ -52,9 +52,6 @@ for (i = 0; i < window.innerWidth; i += sqPx) {
       block.style.zIndex = 5;
       block.style.backgroundColor = randColorStr;
       block.addEventListener("mouseover", function () {
-        if (Tone.context) {
-          Tone.context.resume();
-        }
         if (this.style.background != "transparent") {
           // random from three octaves of major thirds
           var r = Math.random();
