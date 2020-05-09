@@ -21,3 +21,16 @@
   grid-gap: 0px;
   grid-auto-rows: minmax(100px, auto);
 }
+
+.menu{
+  z-index: 10;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 120px;
+  height: 100%;
+  width: 100%;
+}
