@@ -10,9 +10,9 @@ const synth = new Tone.Synth().toMaster();
 const polySynth = new Tone.PolySynth(4, Tone.MonoSynth).toMaster();
 const strings = new Tone.PolySynth(4, Tone.FMSynth).toMaster();
 const beat = new Tone.MembraneSynth().toMaster();
-polySynth.volume.value = -24;
-strings.volume.value = -24;
-beat.volume.value = 4;
+polySynth.volume.value = -20;
+strings.volume.value = -14;
+beat.volume.value = -14;
 
 var div = document.createElement("div");
 div.style.height = "100%";
@@ -81,7 +81,7 @@ for (i = 0; i < window.innerWidth; i += sqPx) {
               "8n"
             );
           } else {
-            beat.triggerAttack(
+            beat.triggerAttackRelease(
               ((((1 / 2) * 4 * keyBase) / 5) * Math.ceil(Math.random() * 6)) /
                 2,
               "8n"
