@@ -1,26 +1,3 @@
-// let loopBeat;
-
-// function setup() {
-//   bassSynth = new Tone.MembraneSynth().toMaste();
-
-//   loopBeat = new Tone.Loop(song, "4n");
-//   Tone.Tranposrt.start();
-//   loopBeat.start(0);
-// }
-
-// function song(time) {
-//   bassSynth.triggerAttackRealease("C4", "8n", time);
-//   console.log(time);
-// }
-// //create a synth and connect it to the master output (your speakers)
-// const synth = new Tone.Synth().toMaster();
-
-// //play a middle 'C' for the duration of an 8th note
-// function note(note) {
-//   synth.triggerAttackRelease(note, "8n");
-// }
-
-// random note between A2 and A4 (whole steps only)
 function randomKey() {
   return 110 * Math.pow(Math.pow(2, 1 / 12), Math.ceil(Math.random() * 15));
 }
@@ -63,7 +40,10 @@ for (i = 0; i < window.innerWidth; i += sqPx) {
       block.addEventListener("mouseover", function () {
         if (this.style.background != "transparent") {
           keyBase = randomKey();
-          synth.triggerAttackRelease(keyBase, "8n");
+          synth.triggerAttackRelease(
+            (((1 / 2) * 4 * keyBase) / 5) * Math.ceil(Math.random() * 6),
+            "8n"
+          );
         }
         this.style.background = "transparent";
         this.style.zIndex = 1;
@@ -79,11 +59,20 @@ for (i = 0; i < window.innerWidth; i += sqPx) {
           // random from three octaves of major thirds
           var r = Math.random();
           if (r < 0.33) {
-            synth.triggerAttackRelease(keyBase, "8n");
+            synth.triggerAttackRelease(
+              (((1 / 2) * 4 * keyBase) / 5) * Math.ceil(Math.random() * 6),
+              "8n"
+            );
           } else if (r > 0.67) {
-            synth.triggerAttackRelease(keyBase, "8n");
+            synth.triggerAttackRelease(
+              (((1 / 2) * 4 * keyBase) / 5) * Math.ceil(Math.random() * 6),
+              "8n"
+            );
           } else {
-            synth.triggerAttackRelease(keyBase, "8n");
+            synth.triggerAttackRelease(
+              (((1 / 2) * 4 * keyBase) / 5) * Math.ceil(Math.random() * 6),
+              "8n"
+            );
           }
         }
         this.style.background = "transparent";
