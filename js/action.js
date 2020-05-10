@@ -21,9 +21,11 @@ const synth = new Tone.Synth().toMaster();
 const polySynth = new Tone.PolySynth(4, Tone.MonoSynth).toMaster();
 const strings = new Tone.PolySynth(4, Tone.FMSynth).toMaster();
 const beat = new Tone.MembraneSynth().toMaster();
-polySynth.volume.value = -20;
-strings.volume.value = -20;
-beat.volume.value = -20;
+polySynth.volume.value = -30;
+strings.volume.value = -30;
+synth.volume.value = -30;
+beat.volume.value = -30;
+
 var randomize;
 
 var div = document.createElement("div");
@@ -33,7 +35,7 @@ div.style.float = "left";
 div.style.overflow = "hidden";
 div.style.backgroundColor = "white";
 
-var sqPx = window.innerWidth / 50;
+var sqPx = window.innerWidth / 100;
 
 var randColorBase = Math.random() * (100 - 1) + 1;
 if (randColorBase < 20) randColorBase = 1582206;
@@ -44,13 +46,11 @@ else if (randColorBase > 80) randColorBase = 16753920;
 
 for (i = 0; i < window.innerWidth; i += sqPx) {
   for (j = 0; j < window.innerHeight; j += sqPx) {
-    var randColorStr =
-      "#" + Math.floor(Math.random() * 255 + randColorBase).toString(16);
+    var randColorStr = "#" + Math.floor(Math.random() * 255 + randColorBase).toString(16);
     var block = document.createElement("div");
     block.style.position = "relative";
-    //block.style.border = "1px solid";
-    block.style.borderRadius = "0%";
-    block.style.display = "inline-block";
+    block.style.borderRadius = "50%";
+    block.style.display = "absolute";
     block.style.margin = "0px";
     block.style.padding = "0px";
     block.style.float = "left";
@@ -60,25 +60,24 @@ for (i = 0; i < window.innerWidth; i += sqPx) {
 
     if (Math.random() > 0.8) {
       block.style.zIndex = 5;
-      block.style.backgroundColor =
-        "#" + Math.floor(Math.random() * 255 + randColorBase).toString(16);
+      block.style.backgroundColor = "#" + Math.floor(Math.random() * 255 + randColorBase).toString(16);
       block.addEventListener("mouseover", function () {
         if (this.style.background != "transparent") {
           keyBase = randomKey();
           randomize = Math.random();
           if (randomize > 0.9) {
             polySynth.triggerAttackRelease("C4", "8n");
-          } else if (randomize > 0.75) {
+          } else if (randomize > 0.75 && randomize < 0.9) {
             polySynth.triggerAttackRelease("D4", "8n");
-          } else if (randomize > 0.65) {
+          } else if (randomize > 0.65 && randomize < 0.75) {
             polySynth.triggerAttackRelease("E4", "8n");
-          } else if (randomize > 0.4) {
+          } else if (randomize > 0.4 && randomize < 0.65) {
             polySynth.triggerAttackRelease("F4", "8n");
-          } else if (randomize > 0.3) {
+          } else if (randomize > 0.3 && randomize < 0.4) {
             polySynth.triggerAttackRelease("G4", "8n");
-          } else if (randomize > 0.2) {
+          } else if (randomize > 0.2 && randomize < 0.3) {
             polySynth.triggerAttackRelease("A4", "8n");
-          } else if (randomize > 0) {
+          } else if (randomize > 0 && randomize < 0.2) {
             polySynth.triggerAttackRelease("B4", "8n");
           }
         }
@@ -98,49 +97,49 @@ for (i = 0; i < window.innerWidth; i += sqPx) {
           if (r < 0.33) {
             if (randomize > 0.9) {
               strings.triggerAttackRelease("C4", "8n");
-            } else if (randomize > 0.75) {
+            } else if (randomize > 0.75 && randomize < 0.9) {
               strings.triggerAttackRelease("D4", "8n");
-            } else if (randomize > 0.65) {
+            } else if (randomize > 0.65 && randomize < 0.75) {
               strings.triggerAttackRelease("E4", "8n");
-            } else if (randomize > 0.4) {
+            } else if (randomize > 0.4 && randomize < 0.4) {
               strings.triggerAttackRelease("F4", "8n");
-            } else if (randomize > 0.3) {
+            } else if (randomize > 0.3 && randomize < 0.3) {
               strings.triggerAttackRelease("G4", "8n");
-            } else if (randomize > 0.2) {
+            } else if (randomize > 0.2 && randomize < 0.2) {
               strings.triggerAttackRelease("A4", "8n");
-            } else if (randomize > 0) {
+            } else if (randomize > 0 && randomize < 0.2) {
               strings.triggerAttackRelease("B4", "8n");
             }
           } else if (r > 0.67) {
             if (randomize > 0.9) {
               synth.triggerAttackRelease("C4", "8n");
-            } else if (randomize > 0.75) {
+            } else if (randomize > 0.75 && randomize < 0.9) {
               synth.triggerAttackRelease("D4", "8n");
-            } else if (randomize > 0.65) {
+            } else if (randomize > 0.65 && randomize < 0.75) {
               synth.triggerAttackRelease("E4", "8n");
-            } else if (randomize > 0.4) {
+            } else if (randomize > 0.4 && randomize < 0.65) {
               synth.triggerAttackRelease("F4", "8n");
-            } else if (randomize > 0.3) {
+            } else if (randomize > 0.3 && randomize < 0.4) {
               synth.triggerAttackRelease("G4", "8n");
-            } else if (randomize > 0.2) {
+            } else if (randomize > 0.2 && randomize < 0.3) {
               synth.triggerAttackRelease("A4", "8n");
-            } else if (randomize > 0) {
+            } else if (randomize > 0 && randomize < 0.2) {
               synth.triggerAttackRelease("B4", "8n");
             }
           } else {
             if (randomize > 0.9) {
               beat.triggerAttackRelease("C4", "8n");
-            } else if (randomize > 0.75) {
+            } else if (randomize > 0.75 && randomize < 0.9) {
               beat.triggerAttackRelease("D4", "8n");
-            } else if (randomize > 0.65) {
+            } else if (randomize > 0.65 && randomize < 0.75) {
               beat.triggerAttackRelease("E4", "8n");
-            } else if (randomize > 0.4) {
+            } else if (randomize > 0.4 && randomize < 0.65) {
               beat.triggerAttackRelease("F4", "8n");
-            } else if (randomize > 0.3) {
+            } else if (randomize > 0.3 && randomize < 0.4) {
               beat.triggerAttackRelease("G4", "8n");
-            } else if (randomize > 0.2) {
+            } else if (randomize > 0.2 && randomize < 0.3) {
               beat.triggerAttackRelease("A4", "8n");
-            } else if (randomize > 0) {
+            } else if (randomize > 0 && randomize < 0.2) {
               beat.triggerAttackRelease("B4", "8n");
             }
           }
