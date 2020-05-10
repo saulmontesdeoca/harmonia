@@ -23,11 +23,17 @@
     </nav> -->
 
     <div class="menu" id="menu">
-      <div class="logo">
-        <img src="styles/logo-harmonia.png" alt="logo-harmonia">
+      <div class="row">
+        <img
+          class="img-fluid"
+          src="assets/logo-harmonia.png"
+          alt="logo-harmonia"
+        />
       </div>
-      <div class="imgButton">
-        <input class="card-link btn btn-outline-light" value="Get Started!" onClick="action();" />
+      <div class="row">
+        <button class="btn btn-outline-light" onClick="action();">
+          Get Started!
+        </button>
       </div>
     </div>
 
@@ -48,19 +54,4 @@
       crossorigin="anonymous"
     ></script>
   </body>
-
-  <script>
-    var hidden = false;
-    function action() {
-        hidden = !hidden;
-        if(hidden) {
-            document.getElementById('menu').style.visibility = 'hidden';
-        } else {
-            document.getElementById('menu').style.visibility = 'visible';
-        }
-    }
-  </script>
-
-
-
 </html>

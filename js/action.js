@@ -1,3 +1,13 @@
+var hidden = false;
+function action() {
+  hidden = !hidden;
+  if (hidden) {
+    document.getElementById("menu").style.visibility = "hidden";
+  } else {
+    document.getElementById("menu").style.visibility = "visible";
+  }
+}
+
 function randomKey() {
   return 110 * Math.pow(Math.pow(2, 1 / 12), Math.ceil(Math.random() * 15));
 }
