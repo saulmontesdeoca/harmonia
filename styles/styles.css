@@ -14,7 +14,9 @@
   background-color: transparent !important;
   margin: 10px;
 }
-
+.nav img {
+  max-width: 32px;
+}
 .menu button {
   margin: 0;
   position: absolute;

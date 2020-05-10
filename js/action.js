@@ -33,7 +33,7 @@ div.style.float = "left";
 div.style.overflow = "hidden";
 // div.style.backgroundColor = "white";
 
-var sqPx = window.innerWidth / 30;
+var sqPx = window.innerWidth / 55;
 
 var randColorBase = Math.random() * (100 - 1) + 1;
 if (randColorBase < 20) randColorBase = 1582206;
