@@ -22,8 +22,8 @@ const polySynth = new Tone.PolySynth(4, Tone.MonoSynth).toMaster();
 const strings = new Tone.PolySynth(4, Tone.FMSynth).toMaster();
 const beat = new Tone.MembraneSynth().toMaster();
 polySynth.volume.value = -20;
-strings.volume.value = -14;
-beat.volume.value = -14;
+strings.volume.value = -20;
+beat.volume.value = -20;
 var randomize;
 
 var div = document.createElement("div");
@@ -31,9 +31,9 @@ div.style.height = "100%";
 div.style.lineHeight = "0";
 div.style.float = "left";
 div.style.overflow = "hidden";
-// div.style.backgroundColor = "white";
+div.style.backgroundColor = "white";
 
-var sqPx = window.innerWidth / 30;
+var sqPx = window.innerWidth / 50;
 
 var randColorBase = Math.random() * (100 - 1) + 1;
 if (randColorBase < 20) randColorBase = 1582206;
