@@ -21,10 +21,10 @@ const synth = new Tone.Synth().toMaster();
 const polySynth = new Tone.PolySynth(4, Tone.MonoSynth).toMaster();
 const strings = new Tone.PolySynth(4, Tone.FMSynth).toMaster();
 const beat = new Tone.MembraneSynth().toMaster();
-polySynth.volume.value = -30;
-strings.volume.value = -30;
-synth.volume.value = -30;
-beat.volume.value = -30;
+polySynth.volume.value = -50;
+strings.volume.value = -50;
+synth.volume.value = -50;
+beat.volume.value = -50;
 
 var randomize;
 
