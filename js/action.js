@@ -7,13 +7,14 @@ function action() {
     document.getElementById("menu").style.visibility = "visible";
   }
 }
-
+function reset() {
+  location.reload();
+}
 function randomKey() {
   return 110 * Math.pow(Math.pow(2, 1 / 12), Math.ceil(Math.random() * 15));
 }
-function activate() {
-  new Tone.AudioNode();
-}
+function activate() {}
+
 var keyBase = randomKey();
 
 const synth = new Tone.Synth().toMaster();
@@ -23,13 +24,14 @@ const beat = new Tone.MembraneSynth().toMaster();
 polySynth.volume.value = -20;
 strings.volume.value = -14;
 beat.volume.value = -14;
+var randomize;
 
 var div = document.createElement("div");
 div.style.height = "100%";
 div.style.lineHeight = "0";
 div.style.float = "left";
 div.style.overflow = "hidden";
-div.style.backgroundColor = "white";
+// div.style.backgroundColor = "white";
 
 var sqPx = window.innerWidth / 30;
 
@@ -63,10 +65,22 @@ for (i = 0; i < window.innerWidth; i += sqPx) {
       block.addEventListener("mouseover", function () {
         if (this.style.background != "transparent") {
           keyBase = randomKey();
-          polySynth.triggerAttackRelease(
-            (((1 / 2) * 4 * keyBase) / 5) * Math.ceil(Math.random() * 6),
-            "8n"
-          );
+          randomize = Math.random();
+          if (randomize > 0.9) {
+            polySynth.triggerAttackRelease("C4", "8n");
+          } else if (randomize > 0.75) {
+            polySynth.triggerAttackRelease("D4", "8n");
+          } else if (randomize > 0.65) {
+            polySynth.triggerAttackRelease("E4", "8n");
+          } else if (randomize > 0.4) {
+            polySynth.triggerAttackRelease("F4", "8n");
+          } else if (randomize > 0.3) {
+            polySynth.triggerAttackRelease("G4", "8n");
+          } else if (randomize > 0.2) {
+            polySynth.triggerAttackRelease("A4", "8n");
+          } else if (randomize > 0) {
+            polySynth.triggerAttackRelease("B4", "8n");
+          }
         }
         this.style.background = "transparent";
         this.style.zIndex = 1;
@@ -80,22 +94,55 @@ for (i = 0; i < window.innerWidth; i += sqPx) {
         }
         if (this.style.background != "transparent") {
           var r = Math.random();
+          randomize = Math.random();
           if (r < 0.33) {
-            strings.triggerAttackRelease(
-              (((1 / 2) * 4 * keyBase) / 5) * Math.ceil(Math.random() * 6),
-              "8n"
-            );
+            if (randomize > 0.9) {
+              strings.triggerAttackRelease("C4", "8n");
+            } else if (randomize > 0.75) {
+              strings.triggerAttackRelease("D4", "8n");
+            } else if (randomize > 0.65) {
+              strings.triggerAttackRelease("E4", "8n");
+            } else if (randomize > 0.4) {
+              strings.triggerAttackRelease("F4", "8n");
+            } else if (randomize > 0.3) {
+              strings.triggerAttackRelease("G4", "8n");
+            } else if (randomize > 0.2) {
+              strings.triggerAttackRelease("A4", "8n");
+            } else if (randomize > 0) {
+              strings.triggerAttackRelease("B4", "8n");
+            }
           } else if (r > 0.67) {
-            synth.triggerAttackRelease(
-              (((1 / 2) * 4 * keyBase) / 5) * Math.ceil(Math.random() * 6),
-              "8n"
-            );
+            if (randomize > 0.9) {
+              synth.triggerAttackRelease("C4", "8n");
+            } else if (randomize > 0.75) {
+              synth.triggerAttackRelease("D4", "8n");
+            } else if (randomize > 0.65) {
+              synth.triggerAttackRelease("E4", "8n");
+            } else if (randomize > 0.4) {
+              synth.triggerAttackRelease("F4", "8n");
+            } else if (randomize > 0.3) {
+              synth.triggerAttackRelease("G4", "8n");
+            } else if (randomize > 0.2) {
+              synth.triggerAttackRelease("A4", "8n");
+            } else if (randomize > 0) {
+              synth.triggerAttackRelease("B4", "8n");
+            }
           } else {
-            beat.triggerAttackRelease(
-              ((((1 / 2) * 4 * keyBase) / 5) * Math.ceil(Math.random() * 6)) /
-                2,
-              "8n"
-            );
+            if (randomize > 0.9) {
+              beat.triggerAttackRelease("C4", "8n");
+            } else if (randomize > 0.75) {
+              beat.triggerAttackRelease("D4", "8n");
+            } else if (randomize > 0.65) {
+              beat.triggerAttackRelease("E4", "8n");
+            } else if (randomize > 0.4) {
+              beat.triggerAttackRelease("F4", "8n");
+            } else if (randomize > 0.3) {
+              beat.triggerAttackRelease("G4", "8n");
+            } else if (randomize > 0.2) {
+              beat.triggerAttackRelease("A4", "8n");
+            } else if (randomize > 0) {
+              beat.triggerAttackRelease("B4", "8n");
+            }
           }
         }
         this.style.background = "transparent";
